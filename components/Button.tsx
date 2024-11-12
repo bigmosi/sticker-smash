@@ -1,13 +1,13 @@
 import { StyleSheet, View, Pressable, Text } from 'react-native';
-/* @tutinfo Import FontAwesome. */import FontAwesome from '@expo/vector-icons/FontAwesome';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
 
 type Props = {
   label: string;
   theme?: 'primary';
+  onPress?: () => void;
 };
 
-export default function Button({ label, /* @tutinfo The prop <CODEtheme</CODE> to detect the button variant. */theme }: Props) {
-  /* @tutinfo Conditionally render the primary themed button. */
+export default function Button({ label,theme, onPress }: Props) {
   if (theme === 'primary') {
     return (
       <View
@@ -17,13 +17,12 @@ export default function Button({ label, /* @tutinfo The prop <CODEtheme</CODE> t
         ]}>
         <Pressable
           style={[styles.button, { backgroundColor: '#fff' }]}
-          onPress={() => alert('You pressed a button.')}>
+          onPress={onPress}>
           <FontAwesome name="picture-o" size={18} color="#25292e" style={styles.buttonIcon} />
           <Text style={[styles.buttonLabel, { color: '#25292e' }]}>{label}</Text>
         </Pressable>
       </View>
     );
-  /* @tutinfo */
   }
 
   return (
