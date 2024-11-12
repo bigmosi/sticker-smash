@@ -1,10 +1,20 @@
-import { Text, View, StyleSheet } from "react-native";
-import { Image } from "expo-image";
+import { View, StyleSheet } from "react-native";
+import ImageViewer from "@/components/ImageViewer";
+import Button from "@/components/Button";
+
+const Placeholder = require("../../assets/images/background-image.png");
 
 export default function Index() {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Hello StickerSmash!</Text>
+      <View style={styles.imageContainer}>
+        <ImageViewer imgSource={Placeholder} />
+      </View>
+
+      <View style={styles.footerContainer}>
+        <Button label="Choose a photo" theme="primary" />
+        <Button label="Use this photo" />
+      </View>
     </View>
   );
 }
@@ -14,15 +24,12 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#25292e',
     alignItems: 'center',
-    justifyContent: 'center'
   },
-  text: {
-    color: '#fff'
+  imageContainer: {
+    flex: 1
   },
-  button: {
-    fontSize: 20,
-    textDecorationLine: "underline",
-    color: "#fff",
-    cursor: "pointer"
+  footerContainer: {
+    flex: 1 / 3,
+    alignItems: "center"
   }
 });
